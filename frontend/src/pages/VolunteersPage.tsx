@@ -19,7 +19,7 @@ const VolunteersPage: React.FC = () => {
           const volId = localStorage.getItem('userId');
           // if (!volId) return;
           const token = localStorage.getItem('token');
-          const res = await fetch(`http://localhost:5000/api/users/me`, {
+          const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/users/me`, {
             headers: {
               Authorization: `Bearer ${token}`,
               'Content-Type': 'application/json',
@@ -30,7 +30,7 @@ const VolunteersPage: React.FC = () => {
           console.log(data);
           const volunteerIds=data.volId[0];
           console.log("volunteerIds",volunteerIds);
-          const volunteerRes = await fetch(`http://localhost:5000/api/users/${volunteerIds}`, {
+          const volunteerRes = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/users/${volunteerIds}`, {
             headers: {
               Authorization: `Bearer ${token}`,
               'Content-Type': 'application/json',

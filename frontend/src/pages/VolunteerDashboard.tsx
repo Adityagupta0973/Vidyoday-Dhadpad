@@ -16,7 +16,7 @@ const VolunteerDashboard: React.FC = () => {
         const volId = localStorage.getItem('userId');
         // if (!volId) return;
         const token = localStorage.getItem('token');
-        const res = await fetch(`http://localhost:5000/api/sessions/volunteer/${volId}`, {
+        const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/sessions/volunteer/${volId}`, {
           headers: {
             Authorization: `Bearer ${token}`,
             'Content-Type': 'application/json',
